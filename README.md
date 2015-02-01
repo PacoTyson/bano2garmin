@@ -1,4 +1,4 @@
-# bano4garmin
+# bano2garmin
 Shell script that adds BANO addresses (France only) to OpenStreetMap files before generating Garmin maps
 The prerequisites are GNU awk and [osmconvert](http://wiki.openstreetmap.org/wiki/Osmconvert)
 
