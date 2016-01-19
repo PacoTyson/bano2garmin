@@ -2,9 +2,12 @@
 
 set -eu
 
+# The options are mentioned here as relative paths but please use full absolute paths
+# like /home/<username/BANO-FRANCE/BANODIR
 BANODIR=.
 PBFDIR=..
 BINDIR=.
+SCRIPTDIR=.
 
 UPDATE=0
 PROCESS=0
@@ -52,7 +55,7 @@ then
 fi
 
 
-DEPTS=$(grep $MAP BANO-mapping-region-departements.txt | cut -f 2 | sed s/,/\ /g)
+DEPTS=$(grep $MAP "$SCRIPTDIR"/BANO-region-departements-mapping.txt | cut -f 2 | sed s/,/\ /g)
 
 if [ $UPDATE -eq 1 ];
 then
@@ -71,14 +74,14 @@ fi
 if [ $PROCESS -eq 1 ];
 then
     echo "Processing..."
-    echo > bano-$MAP.csv
+    echo > "$BANODIR"/bano-$MAP.csv
     for i in $DEPTS
     do
-        cat "$BANODIR"/bano-"$i".csv >> bano-$MAP.csv
+        cat "$BANODIR"/bano-"$i".csv >> "$BANODIR"/bano-$MAP.csv
     done
 
-    awk -f bano2osm.awk bano-$MAP.csv > bano-$MAP.osm
+    awk -f "$SCRIPTDIR"/bano2osm.awk "$BANODIR"/bano-$MAP.csv > "$BANODIR"/bano-$MAP.osm
 
-    $BINDIR/osmconvert $PBFDIR/$MAP-latest.osm.pbf bano-$MAP.osm --out-pbf > $PBFDIR/$MAP-latest-with-bano.osm.pbf
+    $BINDIR/osmconvert $PBFDIR/$MAP-latest.osm.pbf "$BANODIR"/bano-$MAP.osm --out-pbf > $PBFDIR/$MAP-latest-with-bano.osm.pbf
 fi
 
