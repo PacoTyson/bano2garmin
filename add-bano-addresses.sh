@@ -82,7 +82,8 @@ then
 
     echo On low memory  machines use the --hash-memory=400-50-2 option
     # Below line is the original with the full france map
-    $BINDIR/osmconvert -v --hash-memory=400-50-2 $PBFDIR/$MAP-latest.osm.pbf "$BANODIR"/bano-$MAP.osm --out-pbf > $PBFDIR/$MAP-latest-with-bano.osm.pbf
+    #$BINDIR/osmconvert -v --hash-memory=400-50-2 $PBFDIR/$MAP-latest.osm.pbf "$BANODIR"/bano-$MAP.osm --out-pbf > $PBFDIR/$MAP-latest-with-bano.osm.pbf
+    
     # lines below first convert the full france map to a address only map and then merges it with the bano map
     $BINDIR/osmconvert -v --drop-version --hash-memory=400-50-2 $PBFDIR/$MAP-latest.osm.pbf --out-o5m > $PBFDIR/$MAP-latest.o5m
     # Now create an osm file only containing addresses (and some garbage left)
