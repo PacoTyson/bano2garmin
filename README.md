@@ -9,7 +9,7 @@ The prerequisites are GNU awk, [osmconvert](http://wiki.openstreetmap.org/wiki/O
 You'll have to edit the script to configure it to your installation : 
 - BANODIR=directory where the script will download and store the BANO files
 - PBFDIR=directory where the .pbf files are read and written. The read file must follow the Geofabrik naming convention _region_-latest.osm.pbf.
-- BINDIR=directory where osmconvert is stored
+- BINDIR=directory where osmconvert and osmfilter are stored. you can use the versions from your distribution but they are sometimes old.
 - SCRIPTDIR=directory where the scripts reside (as you don't want your data mingled with your code)
 Please use full datapaths, not relative datapaths
 
