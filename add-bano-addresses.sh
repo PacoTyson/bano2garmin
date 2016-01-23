@@ -87,7 +87,7 @@ then
     # lines below first convert the full france map to a address only map and then merges it with the bano map
     $BINDIR/osmconvert -v --drop-version --hash-memory=400-50-2 $PBFDIR/$MAP-latest.osm.pbf --out-o5m > $PBFDIR/$MAP-latest.o5m
     # Now create an osm file only containing addresses (and some garbage left)
-    #$BINDIR/osmfilter  --drop-version --parameter-file="$SCRIPTDIR"/address_only.txt --hash-memory=400-50-2 $PBFDIR/$MAP-latest.o5m -o=$PBFDIR/$MAP-latest-address.o5m
+    $BINDIR/osmfilter  --drop-version --parameter-file="$SCRIPTDIR"/address_only.txt --hash-memory=400-50-2 $PBFDIR/$MAP-latest.o5m -o=$PBFDIR/$MAP-latest-address.o5m
     # Now create an osm file containing the admin boundaries necessary for OsmAnd to create an address map
     $BINDIR/osmfilter --drop-version $PBFDIR/$MAP-latest.o5m --hash-memory=400-50-2 --keep="boundary=administrative" --out-o5m -o=$PBFDIR/$MAP-latest-boundaries.o5m
     # Now create the combined address map
