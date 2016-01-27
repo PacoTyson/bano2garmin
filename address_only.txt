@@ -1,0 +1,14 @@
+-v
+
+--keep=
+addr:*
+
+--drop-ways=*
+
+--drop-relations=* 
+
+--drop-tags=*
+
+--keep-nodes=
+
+--out-o5m
